@@ -13,6 +13,6 @@ public class CompteServiceController {
 
 	    @GetMapping("/endpoint")
 	    public String retrieveLimits(){
-	        return configuration.getTokenIssuer();
+	        return configuration.getTokenExpirationMsec();
 	    }
 }

@@ -1,19 +1,21 @@
 package fr.soft64.configuration;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties("compte-service")
+//@ConfigurationProperties("app.auth")
 @org.springframework.context.annotation.Configuration
 public class Configuration {
-	
-	private String appAuthTokenIssuer;
 
-	public String getTokenIssuer() {
-		return appAuthTokenIssuer;
+//	  @Value("${app.auth.tokenExpirationMsec}")
+	   private String tokenExpirationMsec;
+
+	public String getTokenExpirationMsec() {
+		return "TEST SANS RECUPERATION";
 	}
 
-	public void setTokenIssuer(String value) {
-		this.appAuthTokenIssuer = value;
+	public void setTokenExpirationMsec(String value) {
+		this.tokenExpirationMsec = value;
 	}
 
 }
