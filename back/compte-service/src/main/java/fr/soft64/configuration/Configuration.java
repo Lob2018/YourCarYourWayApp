@@ -1,5 +1,7 @@
 package fr.soft64.configuration;
 
+import org.springframework.beans.factory.annotation.Value;
+
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -8,10 +10,13 @@ package fr.soft64.configuration;
 public class Configuration {
 
 //	  @Value("${app.auth.tokenExpirationMsec}")
+//	   private String tokenExpirationMsec;
+	   @Value("${app.auth.tokenSecret}")
 	   private String tokenExpirationMsec;
+	   
 
 	public String getTokenExpirationMsec() {
-		return "TEST SANS RECUPERATION";
+		return tokenExpirationMsec;
 	}
 
 	public void setTokenExpirationMsec(String value) {
