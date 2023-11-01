@@ -8,6 +8,12 @@ This project was generated with:
 
 > [Spring Boot](https://spring.io/projects/spring-boot) version 3.1.5
 
+> [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway)
+
+> [Spring Cloud Eureka Discovery](https://spring.io/projects/spring-cloud-netflix)
+
+> [Spring Cloud Config Server](https://spring.io/projects/spring-cloud-config)
+
 > [Spring Security](https://spring.io/projects/spring-security)
 
 > [Node](https://nodejs.org/docs/v18.16.0/api/) version 18.16.0
