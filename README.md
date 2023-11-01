@@ -102,7 +102,7 @@ Extra resources
 
 > UML of the app `./resources/UML`
 
-><span style="color:red;">Be careful, the following batches kill all the PIDs of the processes listening on the application ports (8761,8888, etc.)</span>
+>**<span style="color:red;">Be careful, the following batches kill all the PIDs of the processes listening on the application ports (8761,8888, etc.) :</span>**
 
 * Start all services `./resources/CMD DANGER/START.bat`
 * Kill all associated PIDs `./resources/CMD DANGER/STOP.bat`
