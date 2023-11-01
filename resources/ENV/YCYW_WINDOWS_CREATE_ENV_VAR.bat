@@ -16,7 +16,7 @@
 	set /p "jwtSecret=Enter YCYW JWT secret : "
 	setx YCYW_YL_SERVICE_COMPTE_TOKEN_SECRET %jwtSecret%
 	echo.
-	set /p "jwtIssuer=Enter MDD JWT issuer : "
+	set /p "jwtIssuer=Enter YCYW JWT issuer : "
 	setx YCYW_YL_SERVICE_COMPTE_TOKEN_ISSUER %jwtIssuer%
 	echo.
 	title SERVICE COMPTE - DB
