@@ -121,6 +121,20 @@ Inside ./front :
 
 </br>
 
+Login data for users :
+
+* John as a user :
+  * role : USER
+  * mail : <user@example.com>  
+  * password : password
+
+* Jane as an employee :
+  * role : EMPLOYEE
+  * mail : <employee@example.com>
+  * password : password
+
+</br>
+
 ## User environment variables details
 
 </br>
