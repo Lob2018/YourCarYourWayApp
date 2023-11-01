@@ -38,7 +38,7 @@ Set the user's environment variables (batch file with command prompt)
 
 > Inside `resources/ENV`, double-click on `YCYW_WINDOWS_CREATE_ENV_VAR.bat`, to set the variables`*` and note their values`*`
 
-[_Those environment variables are needed to use this APP](#user-environment-variables-details)
+[Those environment variables are needed to use this APP](#user-environment-variables-details)
 
 (double-click on `YCYW_WINDOWS_DROP_ENV_VAR.bat` if you want to remove them after)
 
@@ -102,7 +102,7 @@ Extra resources
 
 > UML of the app `./resources/UML`
 
-><span style="color:red;">Be careful, the following batches kill all the PIDs associated with the application ports</span>
+><span style="color:red;">Be careful, the following batches kill all the PIDs of the processes listening on the application ports (8761,8888, etc.)</span>
 
 * Start all services `./resources/CMD DANGER/START.bat`
 * Kill all associated PIDs `./resources/CMD DANGER/STOP.bat`
