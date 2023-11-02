@@ -20,5 +20,8 @@
 	echo.
 	for /f "tokens=5" %%a in ('netstat -ano ^| find ":%YCYW_YL_SERVICE_COMPTE_SERVER_PORT%"') do set PID=%%a
 	taskkill /F /pid %PID%
+	echo.
+	for /f "tokens=5" %%a in ('netstat -ano ^| find ":%YCYW_YL_SERVICE_TCHAT_SERVER_PORT%"') do set PID=%%a
+	taskkill /F /pid %PID%
 	timeout /t 2 /nobreak > nul
 exit

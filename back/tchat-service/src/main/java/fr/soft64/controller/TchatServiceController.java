@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.soft64.configuration.Configuration;
 
 @RestController
-@RequestMapping("/compte")
-public class CompteServiceController {
-	   @Autowired
-	    Configuration configuration;
+@RequestMapping("/tchat")
+public class TchatServiceController {
+	@Autowired
+	Configuration configuration;
 
-	    @GetMapping("/endpoint")
-	    public String retrieveLimits(){
-	        return configuration.getdatasourceURL();
-	    }
+	@GetMapping("/endpoint")
+	public String retrieveLimits() {
+		return configuration.getdatasourceURL();
+	}
 }

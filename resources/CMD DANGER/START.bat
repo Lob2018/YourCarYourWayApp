@@ -44,6 +44,13 @@
 	cd ../../back/compte-service
 	start cmd /k "title Démarrage du service compte... && mvn clean spring-boot:run"
 
+	echo Fermeture du service tchat...
+	for /f "tokens=5" %%a in ('netstat -ano ^| find ":%YCYW_YL_SERVICE_TCHAT_SERVER_PORT%"') do set PID=%%a
+	taskkill /F /pid %PID%
+	echo Démarrage du service tchat...
+	cd ../../back/tchat-service
+	start cmd /k "title Démarrage du service tchat... && mvn clean spring-boot:run"
+
 	timeout /t 60 /nobreak > nul
 	echo.
 	echo ######################################################
@@ -58,6 +65,8 @@
 	for /f "tokens=5" %%a in ('netstat -ano ^| find ":8888"') do set PID=%%a
 	taskkill /F /pid %PID%
 	for /f "tokens=5" %%a in ('netstat -ano ^| find ":%YCYW_YL_SERVICE_COMPTE_SERVER_PORT%"') do set PID=%%a
+	taskkill /F /pid %PID%
+	for /f "tokens=5" %%a in ('netstat -ano ^| find ":%YCYW_YL_SERVICE_TCHAT_SERVER_PORT%"') do set PID=%%a
 	taskkill /F /pid %PID%
 	taskkill /f /im cmd.exe
 exit

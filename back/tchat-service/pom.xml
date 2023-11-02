@@ -5,16 +5,16 @@
     <artifactId>yourcaryourway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>compte-service</artifactId>
-  <name>compte-service</name>
+  <artifactId>tchat-service</artifactId>
+  <name>tchat-service</name>
 	<description>Spring Cloud - POC microservices pour YourCarYourWay</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
-		<start-class>fr.soft64.CompteServiceApplication</start-class>
+		<start-class>fr.soft64.TchatServiceApplication</start-class>
 	</properties>	
 	 <dependencies>
-	 <dependency>
+	<dependency>
 	    <groupId>org.postgresql</groupId>
 	    <artifactId>postgresql</artifactId>
     </dependency>

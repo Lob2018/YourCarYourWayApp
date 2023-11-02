@@ -15,8 +15,6 @@ public class GatewayConfig {
 	@Bean
 	public RouteLocator routes(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route("compte", r -> r.path("/endpoint").filters(f -> f.filter(filter)).uri("lb://compte"))
-
 				.route("compte", r -> r.path("/compte/**").filters(f -> f.filter(filter)).uri("lb://compte"))
 				.route("tchat", r -> r.path("/tchat/**").filters(f -> f.filter(filter)).uri("lb://tchat"))
 				.build();

@@ -23,6 +23,7 @@
         <module>discovery-service</module>
         <module>gateway-service</module>
         <module>compte-service</module>
+        <module>tchat-service</module>
 	</modules>
 	<dependencies>
 		<dependency>
