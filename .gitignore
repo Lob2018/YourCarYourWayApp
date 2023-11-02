@@ -103,8 +103,9 @@ build/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-### My batch with my environment variables values
+### My batches with my environment variables values
 resources/ENV/YCYW_WINDOWS_PERSO_ENV_VAR.bat
+resources/ENV/pg_env_perso.bat
 
 ### Angular documentation from Compodoc
 front/documentation

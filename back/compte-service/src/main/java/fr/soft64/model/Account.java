@@ -3,7 +3,6 @@ package fr.soft64.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -46,7 +45,6 @@ public class Account {
    
 	@NotNull
 	@Size(max = 384)
-    @Column(nullable = false, unique = true)
     private String email;
     
 	@NotNull

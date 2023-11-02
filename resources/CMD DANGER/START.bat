@@ -43,7 +43,8 @@
 	echo Démarrage du service compte...
 	cd ../../back/compte-service
 	start cmd /k "title Démarrage du service compte... && mvn clean spring-boot:run"
-
+	echo.
+	
 	echo Fermeture du service tchat...
 	for /f "tokens=5" %%a in ('netstat -ano ^| find ":%YCYW_YL_SERVICE_TCHAT_SERVER_PORT%"') do set PID=%%a
 	taskkill /F /pid %PID%
