@@ -26,7 +26,7 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID countryuuid;
     
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     @JoinColumn(name = "currency_currencyuuid")
     private Currency currency;
 	

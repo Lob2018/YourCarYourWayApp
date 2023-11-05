@@ -26,9 +26,8 @@ public class JwtTokenUtil {
 	private String jwtSecret;
 	@Value("${app.auth.tokenIssuer}")
 	private String jwtIssuer;
-	@Value("${app.auth.tokenExpirationMsec}")
-	// 10h
-	private int expirationMiliseconds;
+	// 1 week
+	private int expirationMiliseconds= 7 * 24 * 60 * 60 * 1000;
 
 	private final Logger logger = LoggerFactory.getLogger(JwtTokenUtil.class);
 

@@ -29,7 +29,7 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID addressuuid;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "country_countryuuid")
 	private Country country;
 

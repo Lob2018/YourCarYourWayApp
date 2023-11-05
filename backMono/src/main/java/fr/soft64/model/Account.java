@@ -1,14 +1,18 @@
 package fr.soft64.model;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -25,21 +29,21 @@ import lombok.ToString;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID useruuid;
+    private UUID useruuid;    
     
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     @JoinColumn(name = "address_addressuuid")
     private Address address;
     
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     @JoinColumn(name = "company_companyuuid")
     private Company company;
     
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     @JoinColumn(name = "user_role_roleuuid")
     private User_role user_role;
     
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     @JoinColumn(name = "language_languageuuid")
     private User_language language;
    

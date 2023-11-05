@@ -28,7 +28,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID companyuuid;
     
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
     @JoinColumn(name = "address_addressuuid")
     private Address address;
     

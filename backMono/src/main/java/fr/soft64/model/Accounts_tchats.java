@@ -25,11 +25,13 @@ public class Accounts_tchats {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name = "tchat_tchatuuid")
-	private Tchat tchat;
-	@NotNull
-	private UUID account_useruuid;
+	private Tchat tchat_tchatuuid;
+	
+    @ManyToOne
+    @JoinColumn(name = "account_senderuuid")
+    private Account account_useruuid;
 
 	// Getters and setters with Lombock
 }

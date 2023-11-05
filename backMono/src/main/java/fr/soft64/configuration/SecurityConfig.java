@@ -26,13 +26,13 @@ import jakarta.servlet.http.HttpServletResponse;
 @EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
-	
+
 	@Autowired
 	private JwtTokenFilter jwtTokenFilter;
-	
+
 	@Value("${ycyw.security.cors.origins}")
 	private String corsOrigins;
-	
+
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http = http.cors().and().csrf().disable();
@@ -43,13 +43,9 @@ public class SecurityConfig {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
 		}).and();
 
-		http.authorizeHttpRequests()
-			.requestMatchers("/compte/login").permitAll()		
-			.requestMatchers("/compte/register").permitAll()	
-			.requestMatchers("/tchat/**").permitAll()
-//			.requestMatchers("/api/compte/**").hasAnyRole("USER,EMPLOYEE")	
-//			.requestMatchers("/api/tchat/**").hasRole("EMPLOYEE")			
-			.anyRequest().authenticated();
+		http.authorizeHttpRequests().requestMatchers("/compte/login").permitAll().requestMatchers("/compte/register")
+				.permitAll().requestMatchers("/api/compte/**").hasAnyRole("USER", "EMPLOYEE")
+				.anyRequest().authenticated();
 
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
@@ -67,25 +63,17 @@ public class SecurityConfig {
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
 	}
-		
+
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
-	public AuthenticationManager authenticationManager(final HttpSecurity http, final BCryptPasswordEncoder bCryptPasswordEncoder,
-			final UserDetailsService userDetailService) throws Exception {
-		return http.getSharedObject(AuthenticationManagerBuilder.class)
-				.userDetailsService(userDetailService)
-				.passwordEncoder(bCryptPasswordEncoder)
-				.and().build();
-	}	
+	public AuthenticationManager authenticationManager(final HttpSecurity http,
+			final BCryptPasswordEncoder bCryptPasswordEncoder, final UserDetailsService userDetailService)
+			throws Exception {
+		return http.getSharedObject(AuthenticationManagerBuilder.class).userDetailsService(userDetailService)
+				.passwordEncoder(bCryptPasswordEncoder).and().build();
+	}
 }
-
-
-
-
-
-
-

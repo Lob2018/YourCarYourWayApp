@@ -8,5 +8,25 @@
     "name": "mdd-api.security.cors.origins",
     "type": "java.lang.String",
     "description": "A comma-separated list of origins for which CORS requests are allowed"
+  },
+  {
+    "name": "app.auth.tokenSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'app.auth.tokenSecret'"
+  },
+  {
+    "name": "app.auth.tokenIssuer",
+    "type": "java.lang.String",
+    "description": "A description for 'app.auth.tokenIssuer'"
+  },
+  {
+    "name": "app.auth.tokenExpirationMsec",
+    "type": "java.lang.String",
+    "description": "A description for 'app.auth.tokenExpirationMsec'"
+  },
+  {
+    "name": "ycyw.security.cors.origins",
+    "type": "java.lang.String",
+    "description": "A description for 'ycyw.security.cors.origins'"
   }
 ]}
