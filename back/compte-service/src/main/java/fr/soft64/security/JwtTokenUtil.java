@@ -27,10 +27,9 @@ public class JwtTokenUtil {
 	@Value("${app.auth.tokenIssuer}")
 	private String jwtIssuer;
 	@Value("${app.auth.tokenExpirationMsec}")
-	private int expiration;
+	private int expirationMiliseconds;
 
 	private final Logger logger = LoggerFactory.getLogger(JwtTokenUtil.class);
-	private final int expirationMiliseconds = expiration;
 
 	public final String generateAccessToken(final User autendicatedUser) {
 				return Jwts.builder().setSubject(format("%s", autendicatedUser.getUsername())).setIssuer(jwtIssuer)

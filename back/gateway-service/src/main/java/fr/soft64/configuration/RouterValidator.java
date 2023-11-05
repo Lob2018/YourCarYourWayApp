@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RouterValidator {
 
-	public static final List<String> openApiEndpoints = List.of("/compte/login","/compte/register", "/compte/endpoint","/tchat/endpoint");
+	public static final List<String> openApiEndpoints = List.of("/compte/login","/compte/register", "/tchat/endpoint");
 
 	public Predicate<ServerHttpRequest> isSecured = request -> openApiEndpoints.stream()
 			.noneMatch(uri -> request.getURI().getPath().contains(uri));

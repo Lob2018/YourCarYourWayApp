@@ -1,0 +1,13 @@
+<section>
+  <button
+    class="button-disconnect"
+    mat-button
+    color="warn"
+    (click)="disconnect()"
+  >
+    Se déconnecter
+  </button>
+  <ng-template #loading>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </ng-template>
+</section>

@@ -1,0 +1,82 @@
+{
+  "uuid": "5eb85706-99f9-45e3-976c-c5d0ba649bf5",
+  "lastMigration": 24,
+  "name": "Ycyw",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 8081,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "3a080d22-406d-4568-9c0f-a07f5bd4036b",
+      "documentation": "Returns all the messages for the current user",
+      "method": "get",
+      "endpoint": "tchat",
+      "responses": [
+        {
+          "uuid": "bbbbe421-b555-4437-931d-6addcca344f3",
+          "body": "{\r\n  \"users\": {\r\n    \"me\": {\r\n      \"useruuid\": \"6546a52c41c55a20c6a3a73b\",\r\n      \"accountname\": \"Rae\",\r\n      \"surname\": \"Head\",\r\n      \"active\": true\r\n    },\r\n    \"others\": [\r\n      {\r\n        \"useruuid\": \"6546a52c46432efe604a547c\",\r\n        \"accountname\": \"Rosanna\",\r\n        \"surname\": \"Foley\",\r\n        \"active\": false\r\n      },\r\n      {\r\n        \"useruuid\": \"6546a52cba9ac8e348271d63\",\r\n        \"accountname\": \"Latoya\",\r\n        \"surname\": \"Tran\",\r\n        \"active\": true\r\n      }\r\n    ]\r\n  },\r\n  \"messages\": [\r\n    {\r\n      \"tchatuuid\": \"6546a52cac1e7b2445328671\",\r\n      \"sender_senderuuid\": \"6546a52c41c55a20c6a3a73b\",\r\n      \"createdat\": \"2017-03-03T12:59:41\",\r\n      \"updatedat\": \"2014-11-09T02:50:38\",\r\n      \"active\": false,\r\n      \"content\": \"Eiusmod exercitation ea ullamco est eiusmod ea eiusmod sunt sit eu. Reprehenderit deserunt non esse dolore sint ipsum ut cillum nulla consequat esse eu consectetur et. Ut eu id ullamco ullamco. Velit enim fugiat dolor cupidatat labore dolore excepteur laborum. Velit do ea et eu officia occaecat consequat fugiat qui quis. Elit fugiat nulla id nisi minim aute.\\r\\n\"\r\n    },\r\n    {\r\n      \"tchatuuid\": \"6546a52cf141aaba730afdb0\",\r\n      \"sender_senderuuid\": \"6546a52ce1a54959cfb63c6b\",\r\n      \"createdat\": \"2019-03-07T09:05:27\",\r\n      \"updatedat\": \"2021-08-11T09:08:36\",\r\n      \"active\": true,\r\n      \"content\": \"Enim in exercitation magna ex. Nisi eu commodo non deserunt veniam mollit nisi aliqua non qui enim enim magna sint. Et ipsum officia sunt dolore aute cillum deserunt minim ad velit Lorem in. Fugiat magna ullamco laborum dolore sint do fugiat voluptate incididunt ea laboris. Aliquip dolor do aute reprehenderit ea nisi occaecat ipsum minim proident reprehenderit irure ut dolor. Ipsum quis duis incididunt enim non duis excepteur nisi labore. Veniam qui in labore aute ullamco exercitation culpa consectetur et.\\r\\n\"\r\n    },\r\n    {\r\n      \"tchatuuid\": \"6546a52c51598722ac623058\",\r\n      \"sender_senderuuid\": \"6546a52c41c55a20c6a3a73b\",\r\n      \"createdat\": \"2016-01-13T05:24:24\",\r\n      \"updatedat\": \"2019-02-26T04:16:26\",\r\n      \"active\": true,\r\n      \"content\": \"Consectetur quis esse dolor esse eiusmod ut. Laborum Lorem elit anim cillum tempor aliquip do irure ut. Minim tempor dolor veniam magna esse ex sunt et elit sint labore consequat tempor.\\r\\n\"\r\n    },\r\n    {\r\n      \"tchatuuid\": \"6546a52cf78fa1016f82ab40\",\r\n      \"sender_senderuuid\": \"6546a52c6162059887ecb2e9\",\r\n      \"createdat\": \"2014-06-18T10:07:14\",\r\n      \"updatedat\": \"2018-11-15T03:53:23\",\r\n      \"active\": true,\r\n      \"content\": \"Dolor sit magna enim magna sint Lorem eiusmod non labore in qui velit qui fugiat. Adipisicing pariatur exercitation mollit occaecat aliquip est elit laboris sunt commodo id esse irure. Aliquip commodo consequat voluptate laborum cillum.\\r\\n\"\r\n    },\r\n    {\r\n      \"tchatuuid\": \"6546a52cee28d81584a83bf5\",\r\n      \"sender_senderuuid\": \"6546a52c41c55a20c6a3a73b\",\r\n      \"createdat\": \"2014-09-22T07:18:06\",\r\n      \"updatedat\": \"2017-09-03T04:19:46\",\r\n      \"active\": false,\r\n      \"content\": \"Sit nostrud ut aliqua irure. Ex minim id culpa officia dolor reprehenderit. Exercitation quis occaecat duis adipisicing ea dolor labore mollit nulla. Anim nisi officia aute excepteur quis laboris labore esse officia.\\r\\n\"\r\n    },\r\n    {\r\n      \"tchatuuid\": \"6546a52c68dbdf53e55b364a\",\r\n      \"sender_senderuuid\": \"6546a52c2067f11f6d0aad81\",\r\n      \"createdat\": \"2023-10-21T05:34:45\",\r\n      \"updatedat\": \"2021-06-01T08:11:37\",\r\n      \"active\": false,\r\n      \"content\": \"Veniam anim amet ea labore mollit occaecat incididunt quis ad ea voluptate. Cupidatat deserunt ex tempor laborum eu sint sit sint dolore voluptate sit ea labore. Nostrud tempor eiusmod amet in nisi sunt. Labore in do cupidatat et et consectetur incididunt reprehenderit mollit deserunt occaecat aliquip consectetur aliquip.\\r\\n\"\r\n    }\r\n  ]\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

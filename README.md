@@ -16,11 +16,11 @@ This project was generated with:
 
 > [Spring Security](https://spring.io/projects/spring-security)
 
-> [Node](https://nodejs.org/docs/v18.16.0/api/) version 18.16.0
+> [Node](https://nodejs.org/docs/v18.18.2/api/) version 18.18.2
 
-> [NPM](https://docs.npmjs.com/cli/v9/commands/npm?v=true) version 9.5.1
+> [NPM](https://docs.npmjs.com/cli/v9/commands/npm?v=true) version 9.8.1
 
-> [Angular](https://github.com/angular/angular/tree/14.3.0) version 14.3.0
+> [Angular](https://github.com/angular/angular/tree/16.2.0) version 16.2.0
 
 </br>
 
@@ -132,6 +132,8 @@ Login data for users :
   * role : EMPLOYEE
   * mail : <employee@example.com>
   * password : password
+
+1 Tchat is running between them with 1 question and 1 answer
 
 </br>
 

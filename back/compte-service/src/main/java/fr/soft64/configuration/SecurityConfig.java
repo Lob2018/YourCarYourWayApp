@@ -46,9 +46,9 @@ public class SecurityConfig {
 		http.authorizeHttpRequests()
 			.requestMatchers("/compte/login").permitAll()		
 			.requestMatchers("/compte/register").permitAll()	
-			.requestMatchers("/compte/endpoint").permitAll()
-//			.requestMatchers("/api/compte/**").hasRole("USER")	
-//			.requestMatchers("/api/compte/**").hasRole("EMPLOYEE")			
+//			.requestMatchers("/tchat").permitAll()
+//			.requestMatchers("/api/compte/**").hasAnyRole("USER,EMPLOYEE")	
+//			.requestMatchers("/api/tchat/**").hasRole("EMPLOYEE")			
 			.anyRequest().authenticated();
 
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
@@ -56,17 +56,17 @@ public class SecurityConfig {
 		return http.build();
 	}
 
-	@Bean
-	public CorsFilter corsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		config.addAllowedOrigin(corsOrigins);
-		config.addAllowedHeader("*");
-		config.addAllowedMethod("*");
-		source.registerCorsConfiguration("/**", config);
-		return new CorsFilter(source);
-	}
+//	@Bean
+//	public CorsFilter corsFilter() {
+//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//		CorsConfiguration config = new CorsConfiguration();
+//		config.setAllowCredentials(true);
+//		config.addAllowedOrigin(corsOrigins);
+//		config.addAllowedHeader("*");
+//		config.addAllowedMethod("*");
+//		source.registerCorsConfiguration("/**", config);
+//		return new CorsFilter(source);
+//	}
 	
 	
 	

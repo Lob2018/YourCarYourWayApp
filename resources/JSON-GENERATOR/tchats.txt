@@ -1,0 +1,30 @@
+{
+  users: {   
+    me:{
+      useruuid: '{{objectId()}}',     
+      accountname: '{{firstName()}}',        
+      surname: '{{surname()}}',
+      active:'{{bool()}}'       
+    },
+    others:[
+      '{{repeat(2, 3)}}',
+      {
+        useruuid: '{{objectId()}}',     
+        accountname: '{{firstName()}}',        
+        surname: '{{surname()}}',
+        active:'{{bool()}}'      
+      }
+    ]
+  },
+  messages:[ 
+  '{{repeat(5, 7)}}',
+    {
+      tchatuuid: '{{objectId()}}',
+      sender_senderuuid:'{{objectId()}}',
+      createdat: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss")}}',
+      updatedat: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss")}}',
+      active:'{{bool()}}',
+      content: '{{lorem(1, "paragraphs")}}'
+    }  
+  ]
+}
