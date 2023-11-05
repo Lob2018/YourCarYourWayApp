@@ -9,7 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -28,7 +30,10 @@ public class Tchat {
 	private UUID tchatuuid;
 	
 	@NotNull
-	private UUID account_senderuuid;
+	@ManyToOne
+    @JoinColumn(name = "useruuid")
+	private Account account_senderuuid;
+	
 	@NotNull
 	private LocalDateTime createdat;
 	@NotNull
