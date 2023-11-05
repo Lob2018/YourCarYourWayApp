@@ -63,11 +63,11 @@ public class TchatServiceController {
 		// user's dto data
 		final TchatUserDto tchatUserDto = convertAccountToDto(user);
 
-		// les messages reçus avec les id des expéditeurs
-		final List<Accounts_tchats> accountsChats = tchatService.findByAccount_useruuid(user.getUseruuid());
+//		// les messages reçus avec les id des expéditeurs
+//		final List<Accounts_tchats> accountsChats = tchatService.findByAccount_useruuid(user.getUseruuid());
 
 		// mes messages envoyés
-		final List<Tchat> tchat = tchatService.findByAccount_senderuuid(user.getUseruuid());
+//		final List<Tchat> tchat = tchatService.findByAccount_senderuuid(user);
 
 		// people who send him messages
 //		final Optional<Accounts_tchats> accountsTchats = tchatService.findByAccount(user);
@@ -79,9 +79,9 @@ public class TchatServiceController {
 //		final List<PostDto> postsDtoList = ((Collection<Post>) postService.getAllPosts()).stream()
 //				.map(this::convertPostToDto).collect(Collectors.toList());
 //		final HashMap<String, List<PostDto>> map = new HashMap<>();
-		final HashMap<String, List<Accounts_tchats>> map = new HashMap<>();
+		final HashMap<String, List<Tchat>> map = new HashMap<>();
 
-		map.put("posts", accountsChats);
+//		map.put("posts", tchat);
 		return ResponseEntity.ok().body(map);
 
 	}

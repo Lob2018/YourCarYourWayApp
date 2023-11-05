@@ -20,6 +20,6 @@ public interface Accounts_tchatsRepository extends JpaRepository<Accounts_tchats
 //    List<Accounts_tchats> findByAccount_useruuid(@Param("account_useruuid") Account account_useruuid);
     
     @Query("SELECT p.account_useruuid, p.tchat_tchatuuid FROM Accounts_tchats p WHERE p.account_useruuid = :account_useruuid")
-    List<Accounts_tchats> findByAccount_useruuid(@Param("account_useruuid") UUID account_useruuid);
+    List<Accounts_tchats> findByAccount_useruuid(@Param("account_useruuid") Account account_useruuid);
     
 }
