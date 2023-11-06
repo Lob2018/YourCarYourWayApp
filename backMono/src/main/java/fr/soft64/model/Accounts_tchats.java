@@ -3,35 +3,33 @@ package fr.soft64.model;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "accounts_tchats")
-@Getter
-@Setter
-@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Accounts_tchats {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID id;
-
+	private UUID accountstchatsuuid;
+	
 	@ManyToOne
-	@JoinColumn(name = "tchat_tchatuuid")
-	private Tchat tchat_tchatuuid;
+	@JoinColumn(name = "tchattchatuuid")
+	private Tchat tchatuuid;
 	
     @ManyToOne
-    @JoinColumn(name = "account_senderuuid")
-    private Account account_useruuid;
-
-	// Getters and setters with Lombock
+    @JoinColumn(name = "accountuseruuid")
+    private Account useruuid;
 }

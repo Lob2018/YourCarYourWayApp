@@ -50,11 +50,11 @@ public class CompteService {
 				|| account.getAccountpassword().trim().length() == 0;
 	}
 	
-	public final Optional<User_role> findByUser_role_name (final String role) {
+	public final Optional<User_role> findByUserrolename (final String role) {
 		if (role == null || role.trim().length() == 0) {
 			throw new Error();
 		}
-		return user_roleRepository.findUser_roleByUser_role_name(role);
+		return user_roleRepository.findByUserrolename(role);
 	}
 
 	public final boolean accountPasswordIsStrong(final Account account) {

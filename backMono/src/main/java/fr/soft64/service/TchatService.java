@@ -22,18 +22,18 @@ public class TchatService {
 	@Autowired
 	private Accounts_tchatsRepository accounts_tchatsRepository;
 
-//	public final List<Tchat> findByAccount_senderuuid(Account account_senderuuid) {
-//		if (account_senderuuid == null) {
-//			throw new Error();
-//		}
-//		return tchatRepository.findByAccount_senderuuid(account_senderuuid);
-//	}
-
-	public final List<Accounts_tchats> findByAccount_useruuid(Account uuid) {
-		if (uuid == null) {
+	public final List<Tchat> findByUseruuidTchats(Account account) {
+		if (account == null) {
 			throw new Error();
 		}
-		return accounts_tchatsRepository.findByAccount_useruuid(uuid);
+		return tchatRepository.findByUseruuid(account);
+	}
+
+	public final List<Accounts_tchats> findByUseruuidAccountsTchats(Account account) {
+		if (account == null) {
+			throw new Error();
+		}
+		return accounts_tchatsRepository.findByUseruuid(account);
 	}
 
 }

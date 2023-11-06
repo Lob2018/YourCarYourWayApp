@@ -63,10 +63,10 @@ public class CompteServiceController {
 		try {
 			final Account account = convertToEntity(accountRegistering);
 			final String plainPassword = account.getAccountpassword();
-			Optional<User_role> role = compteService.findByUser_role_name("USER");
+			Optional<User_role> role = compteService.findByUserrolename("USER");
 			if (!role.isPresent())
 				throw new Error();
-			account.setUser_role(role.get());
+			account.setUserroleuuid(role.get());
 			compteService.createAccount(account);
 			// Get and return the new token
 			final Authentication authenticate = authenticationManager

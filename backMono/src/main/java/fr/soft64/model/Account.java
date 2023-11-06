@@ -1,71 +1,65 @@
 package fr.soft64.model;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "account")
-@Getter
-@Setter
-@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID useruuid;    
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID useruuid;
+
 	@ManyToOne
-    @JoinColumn(name = "address_addressuuid")
-    private Address address;
-    
+	@JoinColumn(name = "addressaddressuuid")
+	private Address addressuuid;
+
 	@ManyToOne
-    @JoinColumn(name = "company_companyuuid")
-    private Company company;
-    
+	@JoinColumn(name = "companycompanyuuid")
+	private Company companyuuid;
+
 	@ManyToOne
-    @JoinColumn(name = "user_role_roleuuid")
-    private User_role user_role;
-    
+	@JoinColumn(name = "userroleroleuuid")
+	private User_role userroleuuid;
+
 	@ManyToOne
-    @JoinColumn(name = "language_languageuuid")
-    private User_language language;
-   
+	@JoinColumn(name = "languagelanguageuuid")
+	private User_language languageuuid;
+
 	@NotNull
 	@Size(max = 384)
-    private String email;
-    
+	private String email;
+
 	@NotNull
 	@Size(max = 80)
-    private String accountpassword;
-	@Size(max = 256)   
-    private String accountname;
-	@Size(max = 256)   
-    private String surname;
-	@Size(max = 20)   
-    private String phone;
+	private String accountpassword;
+	@Size(max = 256)
+	private String accountname;
+	@Size(max = 256)
+	private String surname;
+	@Size(max = 20)
+	private String phone;
 	@NotNull
-    private LocalDateTime updatedat;
+	private LocalDateTime updatedat;
 	@NotNull
-    private LocalDateTime createdat;
-    private boolean active = true;
-    
-    // Getters and setters with Lombock
+	private LocalDateTime createdat;
+	private final boolean active = true;
 }
-

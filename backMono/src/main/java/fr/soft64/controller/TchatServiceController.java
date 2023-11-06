@@ -1,10 +1,8 @@
 package fr.soft64.controller;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import fr.soft64.dto.TchatMessageDto;
 import fr.soft64.dto.TchatUserDto;
 import fr.soft64.model.Account;
 import fr.soft64.model.Accounts_tchats;
@@ -63,15 +68,13 @@ public class TchatServiceController {
 		// user's dto data
 		final TchatUserDto tchatUserDto = convertAccountToDto(user);
 
-//		// les messages reçus avec les id des expéditeurs
-//		final List<Accounts_tchats> accountsChats = tchatService.findByAccount_useruuid(user.getUseruuid());
+		// messages reçus (useruuid and tchatuuid list)
+		final List<Accounts_tchats> accountsChats = tchatService.findByUseruuidAccountsTchats(user);
 
-		// mes messages envoyés
-//		final List<Tchat> tchat = tchatService.findByAccount_senderuuid(user);
+		// messages envoyés ()
+		final List<Tchat> tchats = tchatService.findByUseruuidTchats(user);
 
-		// people who send him messages
-//		final Optional<Accounts_tchats> accountsTchats = tchatService.findByAccount(user);
-//		System.out.println("####APRES#####"+tchatUserDto.getUseruuid());
+		
 
 //		final List<SubjectDto> subjectsDtoList = ((Collection<Subject>) subjectService.getAllSubjects()).stream()
 //				.map(this::convertSubjectToDto).collect(Collectors.toList());
@@ -81,7 +84,7 @@ public class TchatServiceController {
 //		final HashMap<String, List<PostDto>> map = new HashMap<>();
 		final HashMap<String, List<Tchat>> map = new HashMap<>();
 
-//		map.put("posts", tchat);
+		map.put("posts", tchats);
 		return ResponseEntity.ok().body(map);
 
 	}

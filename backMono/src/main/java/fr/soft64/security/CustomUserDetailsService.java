@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		if (account.isEmpty())
 			throw new UsernameNotFoundException(userEmail + " not found");
 		return new org.springframework.security.core.userdetails.User(account.get().getEmail(),
-				account.get().getAccountpassword(), getGrantedAuthorities(account.get().getUser_role()));
+				account.get().getAccountpassword(), getGrantedAuthorities(account.get().getUserroleuuid()));
 	}
 
 	private List<GrantedAuthority> getGrantedAuthorities(User_role role) {
@@ -38,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		// Spring Security automatically prefix role with ROLE_
 		// so if the role name in database isn't prefix with ROLE_
 		// we have to it
-		authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getUser_role_name()));
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getUserrolename()));
 		return authorities;
 	}
 

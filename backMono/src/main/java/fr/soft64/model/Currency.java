@@ -9,22 +9,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "currency")
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Currency {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)   
-    private UUID currencyuuid;
-	
-    @NotNull
-    @Size(max = 3)
-    private String currencyiso; 
-    
-    // Getters and setters with Lombock
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID currencyuuid;
+	@NotNull
+	@Size(max = 3)
+	private String currencyiso;
 }
-

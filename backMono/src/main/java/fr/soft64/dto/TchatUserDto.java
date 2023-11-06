@@ -3,13 +3,15 @@ package fr.soft64.dto;
 import java.util.UUID;
 
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class TchatUserDto {
 
 	private UUID useruuid;
@@ -18,6 +20,6 @@ public class TchatUserDto {
 	private String accountname;
 	@Size(max = 256)
 	private String surname;
-	private boolean active = true;
+	private final boolean active = true;
 
 }

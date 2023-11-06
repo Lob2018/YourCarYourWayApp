@@ -18,7 +18,7 @@ CREATE TABLE currency (
 -- Creation of the "country" table
 CREATE TABLE country (
     countryuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    currency_currencyuuid uuid REFERENCES currency(currencyuuid),
+    currencycurrencyuuid uuid REFERENCES currency(currencyuuid),
     countryiso VARCHAR(3) NOT NULL,
     country VARCHAR(128)
 );
@@ -26,7 +26,7 @@ CREATE TABLE country (
 -- Creation of the "address" table
 CREATE TABLE address (
     addressuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    country_countryuuid uuid REFERENCES country(countryuuid),
+    countrycountryuuid uuid REFERENCES country(countryuuid),
     address VARCHAR(2048),
     zipcode VARCHAR(128),
     town VARCHAR(256),
@@ -37,7 +37,7 @@ CREATE TABLE address (
 -- Creation of the "company" table
 CREATE TABLE company (
     companyuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    address_addressuuid uuid REFERENCES address(addressuuid),
+    addressaddressuuid uuid REFERENCES address(addressuuid),
     email VARCHAR(384) NOT NULL UNIQUE,
     companyname VARCHAR(256) NOT NULL,
     phone VARCHAR(20),
@@ -48,24 +48,24 @@ CREATE TABLE company (
 
 -- Creation of the "user_role" table
 CREATE TABLE user_role (
-    user_roleuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    user_role_name VARCHAR(128)
+    userroleuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
+    userrolename VARCHAR(128)
 );
 
 -- Creation of the "user_language" table
 CREATE TABLE user_language (
     languageuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    language_code VARCHAR(3) NOT NULL,
-    language_name VARCHAR(128)
+    languagecode VARCHAR(3) NOT NULL,
+    languagename VARCHAR(128)
 );
 
 -- Creation of the "account" table
 CREATE TABLE account (
     useruuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    address_addressuuid uuid REFERENCES address(addressuuid),
-    company_companyuuid uuid REFERENCES company(companyuuid),
-    user_role_roleuuid uuid REFERENCES user_role(user_roleuuid),
-    language_languageuuid uuid REFERENCES user_language(languageuuid),
+    addressaddressuuid uuid REFERENCES address(addressuuid),
+    companycompanyuuid uuid REFERENCES company(companyuuid),
+    userroleroleuuid uuid REFERENCES user_role(userroleuuid),
+    languagelanguageuuid uuid REFERENCES user_language(languageuuid),
     email VARCHAR(384) NOT NULL UNIQUE,
     accountpassword VARCHAR(80) NOT NULL,
     accountname VARCHAR(256),
@@ -79,7 +79,7 @@ CREATE TABLE account (
 -- Creation of the "tchat" table
 CREATE TABLE tchat (
     tchatuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
-    account_senderuuid uuid REFERENCES account(useruuid),
+    accountsenderuuid uuid REFERENCES account(useruuid),
     createdat TIMESTAMP NOT NULL,
     updatedat TIMESTAMP NOT NULL,
     active BOOLEAN DEFAULT true,
@@ -88,8 +88,9 @@ CREATE TABLE tchat (
 
 -- Creation of the "accounts_tchats" table
 CREATE TABLE accounts_tchats (
-    tchat_tchatuuid uuid REFERENCES tchat(tchatuuid),
-    account_useruuid uuid REFERENCES account(useruuid)
+    accountstchatsuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
+    tchattchatuuid uuid REFERENCES tchat(tchatuuid),
+    accountuseruuid uuid REFERENCES account(useruuid)
 );
 
 -- Pre-populate with 1 user account and 1 employee account
@@ -106,29 +107,29 @@ TRUNCATE TABLE accounts_tchats CASCADE;
 
 DO $$
 DECLARE
-    currency_uuid uuid;
-    country_uuid uuid;
-    address_uuid uuid;
-    role_user_uuid uuid;
-    role_employee_uuid uuid;
-    language_uuid uuid;
-    company_uuid uuid;
-    tchat_uuid_user uuid; 
-    tchat_uuid_employee uuid;    
+    currencyuuid_ uuid;
+    countryuuid_ uuid;
+    addressuuid_ uuid;
+    roleuseruuid uuid;
+    roleemployeeuuid uuid;
+    languageuuid_ uuid;
+    companyuuid_ uuid;
+    tchatuuiduser uuid; 
+    tchatuuidemployee uuid;    
 BEGIN
-    INSERT INTO currency (currencyiso) VALUES ('EUR') RETURNING currencyuuid INTO currency_uuid;
-    INSERT INTO country (currency_currencyuuid, countryiso, country) VALUES (currency_uuid, 'FRA', 'France') RETURNING countryuuid INTO country_uuid;
-    INSERT INTO address (country_countryuuid, address, zipcode, town, latitude, longitude) VALUES (country_uuid, '1 Rue de la Paix', '75001', 'Paris', 48.8566, 2.3522) RETURNING addressuuid INTO address_uuid;
-    INSERT INTO user_role (user_role_name) VALUES ('USER') RETURNING user_roleuuid INTO role_user_uuid;
-    INSERT INTO user_role (user_role_name) VALUES ('EMPLOYEE') RETURNING user_roleuuid INTO role_employee_uuid;
-    INSERT INTO user_language (language_code, language_name) VALUES ('fra', 'Français') RETURNING languageuuid INTO language_uuid;
-    INSERT INTO account (useruuid,address_addressuuid, company_companyuuid, user_role_roleuuid, language_languageuuid, email, accountpassword, accountname, surname, phone, updatedat, createdat, active) VALUES ('784b9cbd-acfd-4aa0-8eb9-57561fba2bf9',address_uuid, NULL, role_user_uuid,language_uuid, 'user@example.com', '$2a$10$/T0HZF.3NUxjJcUduu6DXOJ5NFQJTadHw51UH8nasNqvf7iTwxHwy', 'John', 'Doe', '1234567890', NOW(), NOW(), true);
-    INSERT INTO company (address_addressuuid, email, companyname, phone, createdat, updatedat, active) VALUES (address_uuid, 'company@example.com', 'Your Car Your Way France', '1234567890', NOW(), NOW(), true) RETURNING companyuuid INTO company_uuid;
-    INSERT INTO account (useruuid,address_addressuuid, company_companyuuid, user_role_roleuuid, language_languageuuid, email, accountpassword, accountname, surname, phone, updatedat, createdat, active) VALUES ('74054662-52db-46d7-80db-d4339dca6bb6',address_uuid, company_uuid, role_employee_uuid, language_uuid, 'employee@example.com', '$2a$10$/T0HZF.3NUxjJcUduu6DXOJ5NFQJTadHw51UH8nasNqvf7iTwxHwy', 'Jane', 'Doe', '1234567890', NOW(), NOW(), true);
+    INSERT INTO currency (currencyiso) VALUES ('EUR') RETURNING currencyuuid INTO currencyuuid_;
+    INSERT INTO country (currencycurrencyuuid, countryiso, country) VALUES (currencyuuid_, 'FRA', 'France') RETURNING countryuuid INTO countryuuid_;
+    INSERT INTO address (countrycountryuuid, address, zipcode, town, latitude, longitude) VALUES (countryuuid_, '1 Rue de la Paix', '75001', 'Paris', 48.8566, 2.3522) RETURNING addressuuid INTO addressuuid_;
+    INSERT INTO user_role (userrolename) VALUES ('USER') RETURNING userroleuuid INTO roleuseruuid;
+    INSERT INTO user_role (userrolename) VALUES ('EMPLOYEE') RETURNING userroleuuid INTO roleemployeeuuid;
+    INSERT INTO user_language (languagecode, languagename) VALUES ('fra', 'Français') RETURNING languageuuid INTO languageuuid_;
+    INSERT INTO account (useruuid,addressaddressuuid, companycompanyuuid, userroleroleuuid, languagelanguageuuid, email, accountpassword, accountname, surname, phone, updatedat, createdat, active) VALUES ('784b9cbd-acfd-4aa0-8eb9-57561fba2bf9',addressuuid_, NULL, roleuseruuid,languageuuid_, 'user@example.com', '$2a$10$/T0HZF.3NUxjJcUduu6DXOJ5NFQJTadHw51UH8nasNqvf7iTwxHwy', 'John', 'Doe', '1234567890', NOW(), NOW(), true);
+    INSERT INTO company (addressaddressuuid, email, companyname, phone, createdat, updatedat, active) VALUES (addressuuid_, 'company@example.com', 'Your Car Your Way France', '1234567890', NOW(), NOW(), true) RETURNING companyuuid INTO companyuuid_;
+    INSERT INTO account (useruuid,addressaddressuuid, companycompanyuuid, userroleroleuuid, languagelanguageuuid, email, accountpassword, accountname, surname, phone, updatedat, createdat, active) VALUES ('74054662-52db-46d7-80db-d4339dca6bb6',addressuuid_, companyuuid_, roleemployeeuuid, languageuuid_, 'employee@example.com', '$2a$10$/T0HZF.3NUxjJcUduu6DXOJ5NFQJTadHw51UH8nasNqvf7iTwxHwy', 'Jane', 'Doe', '1234567890', NOW(), NOW(), true);
 
-INSERT INTO tchat (account_senderuuid, createdat, updatedat, active, content) VALUES ('784b9cbd-acfd-4aa0-8eb9-57561fba2bf9', NOW(), NOW(), true, 'User question') RETURNING tchatuuid INTO tchat_uuid_user;
-INSERT INTO accounts_tchats (tchat_tchatuuid, account_useruuid) VALUES (tchat_uuid_user, '74054662-52db-46d7-80db-d4339dca6bb6');
-INSERT INTO tchat (account_senderuuid, createdat, updatedat, active, content) VALUES ('74054662-52db-46d7-80db-d4339dca6bb6', NOW() + INTERVAL '2 minute', NOW() + INTERVAL '2 minute', true, 'Employee response') RETURNING tchatuuid INTO tchat_uuid_employee;
-INSERT INTO accounts_tchats (tchat_tchatuuid, account_useruuid) VALUES (tchat_uuid_employee, '784b9cbd-acfd-4aa0-8eb9-57561fba2bf9');
+INSERT INTO tchat (accountsenderuuid, createdat, updatedat, active, content) VALUES ('784b9cbd-acfd-4aa0-8eb9-57561fba2bf9', NOW(), NOW(), true, 'User question') RETURNING tchatuuid INTO tchatuuiduser;
+INSERT INTO accounts_tchats (tchattchatuuid, accountuseruuid) VALUES (tchatuuiduser, '74054662-52db-46d7-80db-d4339dca6bb6');
+INSERT INTO tchat (accountsenderuuid, createdat, updatedat, active, content) VALUES ('74054662-52db-46d7-80db-d4339dca6bb6', NOW() + INTERVAL '2 minute', NOW() + INTERVAL '2 minute', true, 'Employee response') RETURNING tchatuuid INTO tchatuuidemployee;
+INSERT INTO accounts_tchats (tchattchatuuid, accountuseruuid) VALUES (tchatuuidemployee, '784b9cbd-acfd-4aa0-8eb9-57561fba2bf9');
     
 END $$;
