@@ -6,7 +6,7 @@ import { RxStompService } from '../../rx-stomp.service';
 @Component({
   selector: 'app-new-tchat',
   templateUrl: './new-tchat.component.html',
-  styleUrls: ['./new-tchat.component.css']
+  styleUrls: ['./new-tchat.component.css'],
 })
 export class NewTchatComponent {
   receivedMessages: string[] = [];
@@ -18,8 +18,6 @@ export class NewTchatComponent {
     private rxStompService: RxStompService
   ) {}
 
-
-  
   ngOnInit() {
     this.topicSubscription = this.rxStompService
       .watch('/topic/demo')
@@ -28,14 +26,9 @@ export class NewTchatComponent {
       });
   }
 
-  // ngOnDestroy() {
-  //   this.topicSubscription.unsubscribe();
-  // }
-
-  // onSendMessage() {
-  //   const message = `Message generated at ${new Date()}`;
-  //   this.rxStompService.publish({ destination: '/topic/demo', body: message });
-  // }
+  ngOnDestroy() {
+    this.topicSubscription.unsubscribe();
+  }
 
   onSendMessage() {
     const message = `Message generated at ${new Date()}`;

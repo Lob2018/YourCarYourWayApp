@@ -28,7 +28,10 @@
               "src/assets/ycyw-theme/ycyw-theme.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              // "src/assets/js/sockjs.js",
+              // "src/assets/js/stomp.js"
+            ]
           },
           "configurations": {
             "production": {
