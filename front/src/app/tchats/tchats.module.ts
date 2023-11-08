@@ -13,8 +13,9 @@ import { TchatListComponent } from './components/tchat-list/tchat-list.component
 import { TchatComponent } from './components/tchat/tchat.component';
 import { TchatsRoutingModule } from './tchats-routing.module';
 import { NewTchatComponent } from './components/new-tchat/new-tchat.component';
-import { rxStompServiceFactory } from './components/rx-stomp-service-factory';
-import { RxStompService } from './components/rx-stomp.service';
+import { rxStompServiceFactory } from './rx-stomp-service-factory';
+import { RxStompService } from './rx-stomp.service';
+
 
 
 const materialModules = [

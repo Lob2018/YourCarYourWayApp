@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ErrorHandlerService } from 'src/app/core/services/error-handler.service';
-import { RxStompService } from '../rx-stomp.service';
 import { Message } from '@stomp/stompjs';
+import { RxStompService } from '../../rx-stomp.service';
 
 @Component({
   selector: 'app-new-tchat',
@@ -22,7 +22,7 @@ export class NewTchatComponent {
   
   ngOnInit() {
     this.topicSubscription = this.rxStompService
-      .watch('/')
+      .watch('/topic/demo')
       .subscribe((message: Message) => {
         this.receivedMessages.push(message.body);
       });
