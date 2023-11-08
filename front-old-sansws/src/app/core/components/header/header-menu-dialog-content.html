@@ -1,0 +1,23 @@
+<div class="mat-typography" cdkTrapFocus>
+  <nav id="menu-mobile" aria-label="Main mobile navigation">
+    <button
+      role="menuitem"
+      mat-button
+      routerLink="tchats"
+      (click)="closeDialog()"
+      routerLinkActive="active"
+    >
+      Tchat
+    </button>
+    <button
+      id="button-user"
+      class="yl-button-image-accessibility"
+      role="menuitem"
+      routerLink="user-page"
+      (click)="closeDialog()"
+      aria-label="User account"
+    >
+      <img src="/assets/pictures/user.png" alt="User account" />
+    </button>
+  </nav>
+</div>

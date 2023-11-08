@@ -39,7 +39,7 @@ CREATE TABLE company (
     companyuuid uuid PRIMARY KEY UNIQUE DEFAULT gen_random_uuid(),
     addressaddressuuid uuid REFERENCES address(addressuuid),
     email VARCHAR(384) NOT NULL UNIQUE,
-    companyname VARCHAR(256) NOT NULL,
+    companyname VARCHAR(256) UNIQUE,
     phone VARCHAR(20),
     createdat TIMESTAMP NOT NULL,
     updatedat TIMESTAMP NOT NULL,

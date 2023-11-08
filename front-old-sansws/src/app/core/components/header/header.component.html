@@ -1,0 +1,60 @@
+<header *ngIf="isDesktop; else isMobile">
+  <nav aria-label="Main navigation">
+    <mat-toolbar role="menubar">
+      <button
+        class="yl-button-image-accessibility"
+        role="menuitem"
+        routerLink=""
+        aria-label="Your Car Your Way"
+      >
+        <img src="/assets/pictures/logo_ycyw.png" alt="Logo" />
+      </button>
+      <span class="menu-spacer"></span>
+      <button
+        *ngIf="shouldShowMenu()"
+        role="menuitem"
+        mat-button
+        routerLink="tchats"
+        routerLinkActive="active"
+      >
+        Tchat
+      </button>
+      <button
+        *ngIf="shouldShowMenu()"
+        id="button-user"
+        class="yl-button-image-accessibility"
+        role="menuitem"
+        routerLink="user-page"
+        aria-label="User account"
+      >
+        <img src="/assets/pictures/user.png" alt="User account" />
+      </button>
+    </mat-toolbar>
+  </nav>
+</header>
+<ng-template #isMobile>
+  <header>
+    <nav aria-label="Main navigation">
+      <mat-toolbar role="menubar">
+        <button
+          class="yl-button-image-accessibility"
+          role="menuitem"
+          routerLink=""
+          aria-label="Your Car Your Way"
+        >
+          <img src="/assets/pictures/logo_ycyw.png" alt="Logo" />
+        </button>
+        <span class="menu-spacer"></span>
+        <button
+          *ngIf="shouldShowMenu()"
+          class="yl-button-image-accessibility"
+          role="menuitem"
+          aria-label="Toggle navigation"
+          (click)="openMenu()"
+        >
+          <img src="/assets/pictures/menu_burger.png" alt="Toggle navigation" />
+        </button>
+      </mat-toolbar>
+    </nav>
+  </header>
+</ng-template>

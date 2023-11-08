@@ -13,6 +13,9 @@ import { TchatListComponent } from './components/tchat-list/tchat-list.component
 import { TchatComponent } from './components/tchat/tchat.component';
 import { TchatsRoutingModule } from './tchats-routing.module';
 import { NewTchatComponent } from './components/new-tchat/new-tchat.component';
+import { rxStompServiceFactory } from './components/rx-stomp-service-factory';
+import { RxStompService } from './components/rx-stomp.service';
+
 
 const materialModules = [
   MatButtonModule,
@@ -37,6 +40,12 @@ const materialModules = [
     TchatsRoutingModule,
     FormsModule,
     ...materialModules,
+  ],
+  providers: [
+    {
+      provide: RxStompService,
+      useFactory: rxStompServiceFactory,
+    },
   ],
   exports: [
 
