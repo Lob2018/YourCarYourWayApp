@@ -3,7 +3,7 @@ import { WebSocketService } from 'src/app/core/services/websocket-service.servic
 import { Router, RouterModule, Routes } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
-import {Message} as Stomp from 'stompjs';
+import {Message} from 'stompjs';
 
 @Component({
   selector: 'app-new-tchat',
@@ -26,7 +26,7 @@ export class NewTchatComponent {
     this.webSocketService.connect().subscribe(() => {
       this.webSocketService
         .subscribe(this.topic)
-        .subscribe((message: Stomp.Message) => {
+        .subscribe((message: Message) => {
           this.messages.push(message.body);
         });
     });

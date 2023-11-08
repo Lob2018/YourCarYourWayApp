@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as Stomp from 'stompjs';
+import {Message, Client} from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { Observable } from 'rxjs';
 
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class WebSocketService {
   private serverUrl = 'http://localhost:8080/ws';
-  private stompClient!:Stomp.Client;
+  private stompClient!:Client;
 
   public connect(): Observable<any> {
     const socket = new SockJS(this.serverUrl);
@@ -23,7 +24,7 @@ export class WebSocketService {
 
   public subscribe(topic: string): Observable<any> {
     const observable = new Observable(observer => {
-      this.stompClient.subscribe(topic, (message:Stomp.Message) => {
+      this.stompClient.subscribe(topic, (message:Message) => {
         observer.next(message);
       });
     });
