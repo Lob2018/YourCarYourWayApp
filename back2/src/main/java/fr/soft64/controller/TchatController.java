@@ -11,12 +11,14 @@ import fr.soft64.model.InputMessage;
 import fr.soft64.model.OutputMessage;
 import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 public class TchatController {
 		@MessageMapping("/chat")
 		@SendTo("/topic/messages")
 		public OutputMessage message(InputMessage message) {
 			System.out.println("message : "+message);
+			log.info("Input Message " + message);
 			return OutputMessage.builder().time(Instant.now(Clock.systemDefaultZone())).content(message.getContent()).build();
 		}
 	}

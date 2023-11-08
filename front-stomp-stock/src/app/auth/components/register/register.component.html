@@ -1,0 +1,51 @@
+<button
+  class="yl-button-image-accessibility"
+  aria-label="Return to previous page"
+  (click)="goBack()"
+>
+  <img src="/assets/pictures/arrow_left.png" alt="Return" />
+</button>
+<img class="form-logo" src="/assets/pictures/logo_ycyw.png" alt="Logo" />
+<form class="login-form" [formGroup]="form" (ngSubmit)="submit()">
+  <legend>Inscription</legend>
+
+  <mat-form-field class="input-first" appearance="outline" floatLabel="always">
+    <mat-label class="custom-label">Nom d'utilisateur</mat-label>
+    <input matInput formControlName="accountname" />
+  </mat-form-field>
+
+  <mat-form-field class="input-first" appearance="outline" floatLabel="always">
+    <mat-label class="custom-label">Adresse e-mail</mat-label>
+    <input matInput formControlName="email" />
+  </mat-form-field>
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label class="custom-label">Mot de passe</mat-label>
+    <input
+      style="max-height: 50px"
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      formControlName="accountpassword"
+    />
+    <button
+      class="custom-hide-password"
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+      type="button"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button
+    class="button-last"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid"
+  >
+    S'inscrire
+  </button>
+  <p *ngIf="onError" class="error">An error occurred</p>
+</form>

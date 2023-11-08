@@ -8,20 +8,20 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 import fr.soft64.controller.TchatController;
 import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		System.out.println("registering..");
-		registry.addEndpoint("/ws").withSockJS();
+		registry.addEndpoint("/ws")
+		.setAllowedOrigins("http://localhost:4200")
+		.withSockJS();
 	}
-	
+
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
-		System.out.println("configuring..");
-
 		registry.enableSimpleBroker("/topic");
 		registry.setApplicationDestinationPrefixes("/app");
 	}
