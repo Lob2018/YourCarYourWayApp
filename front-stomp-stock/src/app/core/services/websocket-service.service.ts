@@ -4,7 +4,7 @@ import * as SockJS from 'sockjs-client';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebSocketService {
   private serverUrl = 'http://localhost:8080/ws';
