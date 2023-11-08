@@ -21,10 +21,10 @@ export class TchatListComponent {
   ) {}
 
   ngOnInit(): void {
-    this.messages$ = this.tchatService.getTchatMessages().pipe(
-      catchError((error) => {
-        return this.errorHandler.handleError(error);
-      })
-    );
+    // this.messages$ = this.tchatService.getTchatMessages().pipe(
+    //   catchError((error) => {
+    //     return this.errorHandler.handleError(error);
+    //   })
+    // );
   }
 }

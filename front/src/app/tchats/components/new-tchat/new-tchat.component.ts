@@ -20,8 +20,9 @@ export class NewTchatComponent {
 
   ngOnInit() {
     this.topicSubscription = this.rxStompService
-      .watch('/topic/demo')
+      .watch('/topic/messages')
       .subscribe((message: Message) => {
+        console.log(message.body)
         this.receivedMessages.push(message.body);
       });
   }
@@ -32,6 +33,6 @@ export class NewTchatComponent {
 
   onSendMessage() {
     const message = `Message generated at ${new Date()}`;
-    this.rxStompService.publish({ destination: '/topic/demo', body: message });
+    this.rxStompService.publish({ destination: '/chat', body: message });
   }
 }
