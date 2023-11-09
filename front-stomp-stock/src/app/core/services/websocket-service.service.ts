@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WebSocketService {
-  private serverUrl = 'http://localhost:8080/ws';
+  private serverUrl = 'http://localhost:8081/ws';
   private stompClient!:Client;
 
   public connect(): Observable<any> {

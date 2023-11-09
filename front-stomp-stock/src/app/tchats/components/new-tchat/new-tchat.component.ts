@@ -3,15 +3,14 @@ import { WebSocketService } from 'src/app/core/services/websocket-service.servic
 import { Router, RouterModule, Routes } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
-import {Message} from 'stompjs';
+import { Message } from 'stompjs';
+import { MessageService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-new-tchat',
   templateUrl: './new-tchat.component.html',
-  styleUrls: ['./new-tchat.component.css']
+  styleUrls: ['./new-tchat.component.css'],
 })
-
-
 export class NewTchatComponent {
   title = 'angular8-springboot-websocket';
   topic = '/topic/messages';
@@ -19,20 +18,14 @@ export class NewTchatComponent {
 
   constructor(
     private errorHandler: ErrorHandlerService,
-    private webSocketService: WebSocketService
+    private messageService: MessageService
   ) {}
 
-  ngOnInit() {
-    this.webSocketService.connect().subscribe(() => {
-      this.webSocketService
-        .subscribe(this.topic)
-        .subscribe((message: Message) => {
-          this.messages.push(message.body);
-        });
-    });
-  }
+  ngOnInit() {}
 
   onSendMessage(message: string): void {
-    this.webSocketService.send('/app/hello', message);
+    if (message) {
+      this.messageService.sendMessage(message);
+    }
   }
 }

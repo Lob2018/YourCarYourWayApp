@@ -1,14 +1,36 @@
 <div
-
-[ngClass]="{'my-message': user.useruuid === tchatMessage.sender_senderuuid, 'others-message': user.useruuid !== tchatMessage.sender_senderuuid}"
+[ngClass]="{'my-message':true}"
   class="message"
   mat-card
   matRipple
   color="primary"
-  [attr.aria-label]="tchatMessage.createdat | date : 'shortDate'"
   tabindex="0"
 >
-  <mat-card-title>{{ tchatMessage.sender_senderuuid }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-card-title>
+  <!--
+    
+    
+    /// DIV
+[ngClass]="{'my-message': user.useruuid === tchatMessage.sender_senderuuid, 'others-message': user.useruuid !== tchatMessage.sender_senderuuid}"
+  [attr.aria-label]="tchatMessage.createdat | date : 'shortDate'"
+  
+///
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <mat-card-title>{{ tchatMessage.sender_senderuuid }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-card-title>
   <mat-card-subtitle>
     <span class="post-date"
       >{{ tchatMessage.updatedat | date : "dd-MM-YY HH:mm" }}
@@ -16,8 +38,9 @@
   </mat-card-subtitle>
   <mat-card-content>
     <p>{{ tchatMessage.content }}</p>
+  </mat-card-content> -->
+
+  <mat-card-content>
+    <p>{{ message }}</p>
   </mat-card-content>
 </div>
-
-
-

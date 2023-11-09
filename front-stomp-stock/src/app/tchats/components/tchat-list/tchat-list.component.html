@@ -1,18 +1,14 @@
 <section>
-  <ng-container *ngIf="messages$ | async as data; else loading">
-    <p class="subtitle">
-      <span>{{ data[0].me.useruuid }}&nbsp;&nbsp;&nbsp;&nbsp;{{ data[0].me.accountname }}&nbsp;&nbsp;&nbsp;&nbsp;{{ data[0].me.surname }}</span>
-    </p>
-    <mat-divider></mat-divider>
-
-    <div class="list-article" *ngIf="data[1].length">
-      <app-tchat
-        *ngFor="let tchatMessage of data[1]"
-        [tchatMessage]="tchatMessage"
-        [user]="data[0].me"
-      ></app-tchat>
+  <ng-container *ngIf="msg; else loading">
+    <div class="list-article" *ngIf="msg.length">
+      <app-tchat *ngFor="let tchatMessage of msg"
+      
+      [message]="tchatMessage"
+      
+      
+     ></app-tchat>
     </div>
-    <p *ngIf="!data[1].length">
+    <p *ngIf="!msg.length">
       <span class="no-comment">No messages available</span>
     </p>
   </ng-container>
