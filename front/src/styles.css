@@ -1,0 +1,33 @@
+html,
+body,
+app-root,
+textarea {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+body {
+  border: 1px solid black;
+}
+button.yl-button-image-accessibility {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: inherit;
+  max-height: 81px;
+}
+button.yl-button-image-accessibility img {
+  margin: 0;
+}
+mat-progress-spinner {
+  margin: 1.3rem auto;
+}
+.multiline-snackbar {
+  white-space: pre-line;
+}
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}

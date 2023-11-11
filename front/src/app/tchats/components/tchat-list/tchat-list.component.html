@@ -1,0 +1,17 @@
+<section>
+  <ng-container *ngIf="msg; else loading">
+    <div class="list-article" *ngIf="msg.length">
+      <app-tchat
+        *ngFor="let tchatMessage of msg"
+        [tchatMessage]="tchatMessage"
+      ></app-tchat>
+    </div>
+    <p *ngIf="!msg.length" class="no-message">
+      <span>No messages available</span>
+    </p>
+  </ng-container>
+  <app-new-tchat></app-new-tchat>
+  <ng-template #loading>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </ng-template>
+</section>

@@ -1,0 +1,29 @@
+<div
+  [ngClass]="{
+    'my-message':
+      tchatMessage.username + tchatMessage.companyname === getUserAndCompany(),
+    'others-message':
+      tchatMessage.username + tchatMessage.companyname !== getUserAndCompany()
+  }"
+  class="message"
+  mat-card
+  matRipple
+  color="primary"
+  [attr.aria-label]="tchatMessage.time | date : 'shortDate'"
+  tabindex="0"
+>
+  <mat-card-title
+    >{{ tchatMessage.username }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{
+      tchatMessage.companyname
+    }}</b
+    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-card-title
+  >
+  <mat-card-subtitle>
+    <span class="post-date"
+      >{{ tchatMessage.time | date : "dd-MM-YY HH:mm" }}
+    </span>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <p>{{ tchatMessage.content }}</p>
+  </mat-card-content>
+</div>
